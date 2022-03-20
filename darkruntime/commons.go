@@ -16,8 +16,8 @@ var moduledata_ftab_off uintptr = darkreflect.MustGetOffset(moduledata_t, "ftab"
 var moduledata_pclntable_off uintptr = darkreflect.MustGetOffset(moduledata_t, "pclntable") // []byte
 
 type functab struct {
-	entry   uintptr
-	funcoff uintptr
+	entry   uint32
+	funcoff uint32
 }
 
 func Modulesinit()

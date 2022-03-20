@@ -12,7 +12,7 @@ func AllFuncs() []*runtime.Func {
 		pclntable := *(*[]byte)(unsafe.Add(m, moduledata_pclntable_off))
 		for _, f := range ftab {
 			_ = f.entry // ignore unused
-			if f.funcoff < uintptr(len(pclntable)) {
+			if f.funcoff < uint32(len(pclntable)) {
 				function := (*runtime.Func)(unsafe.Pointer(&pclntable[f.funcoff]))
 				funcs = append(funcs, function)
 			}
